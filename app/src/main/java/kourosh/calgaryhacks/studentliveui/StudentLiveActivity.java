@@ -1,17 +1,27 @@
 package kourosh.calgaryhacks.StudentLiveUI;
 
+import android.content.DialogInterface;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
 import com.getbase.floatingactionbutton.FloatingActionButton;
 import com.getbase.floatingactionbutton.FloatingActionsMenu;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import android.view.View.OnClickListener;
+import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Random;
 
 import kourosh.calgaryhacks.Classes.Question;
 import kourosh.calgaryhacks.Classes.QuestionAdapter;
@@ -22,17 +32,19 @@ public class StudentLiveActivity extends AppCompatActivity {
     // list of questions
     private ArrayList<Question> questionList = new ArrayList<>();
     private DatabaseReference database = FirebaseDatabase.getInstance().getReference("Questions");
+    private QuestionAdapter questionAdapter;
+    private ArrayList<Boolean> isClicked = new ArrayList<Boolean>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_student_live);
 
-        // note: this is dummy code to populate list view
-        getQuestions();
-
         setFABListeners();
         setListViewAdapter();
+
+        for(int i = 0; i < questionList.size(); i++)
+            isClicked.add(false);
     }
 
     private void setFABListeners() {
@@ -45,7 +57,46 @@ public class StudentLiveActivity extends AppCompatActivity {
         askQuestion.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
-                askQuestion.setTitle("Action A clicked");
+                LayoutInflater li = LayoutInflater.from(view.getContext());
+                View promptsView = li.inflate(R.layout.ask_question_box, null);
+
+                AlertDialog.Builder aDB = new AlertDialog.Builder(view.getContext());
+                aDB.setView(promptsView);
+
+                final View pv = promptsView;
+                final View ogV = view;
+
+                aDB
+                        .setCancelable(false)
+                        .setPositiveButton("Cancel", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                dialog.cancel();
+                            }
+                        })
+
+                        .setNegativeButton("Ask", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                //Add course
+
+                                EditText v = (EditText) pv.findViewById(R.id.ask_box_body);
+                                String txt = v.getText().toString();
+                                Question newQuestion = new Question(Integer.toString(new Random().nextInt(10000)), "anonymous", txt, false);
+                                questionList.add(newQuestion);
+                                isClicked.add(false);
+
+                                database.child(newQuestion.id).setValue(newQuestion);
+                                questionAdapter.notifyDataSetChanged();
+
+//                                findViewById(R.id.ask_box_sender);
+                                onResume();
+                            }
+                        });
+
+
+                AlertDialog aD = aDB.create();
+                aD.show();
             }
         });
 
@@ -67,23 +118,8 @@ public class StudentLiveActivity extends AppCompatActivity {
     }
 
     public void setListViewAdapter() {
-        QuestionAdapter questionAdapter = new QuestionAdapter(this, questionList);
+        questionAdapter = new QuestionAdapter(this, questionList);
         ListView lv = (ListView) findViewById(R.id.student_live_ui_list);
         lv.setAdapter(questionAdapter);
     }
-
-    private void getQuestions(){
-
-        questionList.add(new Question("1","Swager","1234567"));
-        questionList.add(new Question("12","Swag3212er","Macneil"));
-        questionList.add(new Question("123","Swage1212r","test"));
-        questionList.add(new Question("1234","Swage121r","1111111111111111111111111"));
-
-
-        database.child(questionList.get(0).id).setValue(questionList.get(0));
-        database.child(questionList.get(1).id).setValue(questionList.get(1));
-        database.child(questionList.get(2).id).setValue(questionList.get(2));
-        database.child(questionList.get(3).id).setValue(questionList.get(3));
-    }
-
 }
