@@ -18,6 +18,7 @@ import android.widget.ListView;
 
 import java.util.ArrayList;
 
+
 import kourosh.calgaryhacks.Course;
 import kourosh.calgaryhacks.CourseAdapter;
 import kourosh.calgaryhacks.R;
@@ -27,7 +28,6 @@ public class ProfMain extends AppCompatActivity {
     private String profEmail;
     private ListView lv;
     private CourseAdapter courseAdapter;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,7 +42,6 @@ public class ProfMain extends AppCompatActivity {
 
         courseAdapter = new CourseAdapter(this,courseList);
         lv = (ListView) findViewById(R.id.MainListview);
-
         lv.setAdapter(courseAdapter);
 
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener(){
@@ -70,8 +69,6 @@ public class ProfMain extends AppCompatActivity {
 
 
     }
-
-
 
     public void openCourseAdding(View view){
         LayoutInflater li = LayoutInflater.from(this);
