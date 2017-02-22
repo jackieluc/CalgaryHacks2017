@@ -16,4 +16,8 @@
         completions."
     </string>
     <string name="register">Register Here</string>
+    <string name="action_register">Register</string>
+    <string name="prompt_firstname">First Name</string>
+    <string name="prompt_lastname">Last Name</string>
+    <string name="prompt_occupation">I am a...</string>
 </resources>
