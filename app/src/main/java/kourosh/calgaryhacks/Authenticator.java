@@ -13,16 +13,34 @@ public class Authenticator
 
     public void createNewUser(String email, String password)
     {
-        Task<AuthResult> task = auth.createUserWithEmailAndPassword(email, password);
-        task.addOnSuccessListener((AuthResult a) -> onCreateUserSuccess(a));
-        task.addOnFailureListener((Exception e) -> onCreateUserFailure(e));
+        email = email.trim();
+
+        if (email.endsWith("@ucalgary.ca"))
+        {
+            Task<AuthResult> task = auth.createUserWithEmailAndPassword(email, password);
+            task.addOnSuccessListener(this::onCreateUserSuccess);
+            task.addOnFailureListener(this::onCreateUserFailure);
+        }
+        else
+        {
+            // NOT A UCALGARY EMAIL
+        }
     }
 
     public void signInUser(String email, String password)
     {
-        Task<AuthResult> task = auth.signInWithEmailAndPassword(email, password);
-        task.addOnSuccessListener((AuthResult a) -> onSignInSuccess(a));
-        task.addOnFailureListener((Exception e) -> onSignInFailure(e));
+        email = email.trim();
+
+        if (email.endsWith("@ucalgary.ca"))
+        {
+            Task<AuthResult> task = auth.signInWithEmailAndPassword(email, password);
+            task.addOnSuccessListener(this::onSignInSuccess);
+            task.addOnFailureListener(this::onSignInFailure);
+        }
+        else
+        {
+            // NOT A UCALGARY EMAIL
+        }
     }
 
     private void onCreateUserSuccess(AuthResult result)
