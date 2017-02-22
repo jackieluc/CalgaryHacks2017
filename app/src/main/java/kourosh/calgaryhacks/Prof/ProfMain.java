@@ -7,6 +7,11 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
+import android.content.Intent;
+import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -37,6 +42,7 @@ public class ProfMain extends AppCompatActivity {
 
         courseAdapter = new CourseAdapter(this,courseList);
         lv = (ListView) findViewById(R.id.MainListview);
+
         lv.setAdapter(courseAdapter);
 
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener(){
@@ -98,9 +104,7 @@ public class ProfMain extends AppCompatActivity {
 
         AlertDialog aD = aDB.create();
         aD.show();
-
     }
-
 
     @Override
     protected void onResume() {
