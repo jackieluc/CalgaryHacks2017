@@ -1,9 +1,11 @@
-package kourosh.calgaryhacks;
+package login;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
+
+import kourosh.calgaryhacks.R;
 
 public class RegisterActivity extends AppCompatActivity {
 

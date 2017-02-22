@@ -1,4 +1,4 @@
-package kourosh.calgaryhacks;
+package login;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
@@ -30,10 +30,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import org.w3c.dom.Text;
-
 import java.util.ArrayList;
 import java.util.List;
+
+import kourosh.calgaryhacks.R;
 
 import static android.Manifest.permission.READ_CONTACTS;
 
