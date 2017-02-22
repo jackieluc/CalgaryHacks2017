@@ -4,22 +4,22 @@ package kourosh.calgaryhacks.Classes;
 public class Question {
 
     public String id;
-    public String sender;
+    public String sessionID;
     public String body;
     public int score;
     public Boolean isClicked;
 
     public Question() {
         this.id = Double.toString(Math.random());
-        this.sender = "anonymous";
+        this.sessionID = "";
         this.body = "";
         this.score = 0;
         this.isClicked = false;
     }
 
-    public Question(String id, String sender, String body, Boolean isClicked) {
+    public Question(String id, String sessionID, String body, Boolean isClicked) {
         this.id = id;
-        this.sender = sender;
+        this.sessionID = sessionID;
         this.body = body;
         this.score = 0;
         this.isClicked = isClicked;
@@ -31,9 +31,5 @@ public class Question {
 
     public void askQuestion(String question) {
         this.body = question;
-    }
-
-    public void changeSender(String sender) {
-        this.sender = sender;
     }
 }
