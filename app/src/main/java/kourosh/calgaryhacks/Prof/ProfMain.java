@@ -2,7 +2,6 @@ package kourosh.calgaryhacks.Prof;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
@@ -16,6 +15,8 @@ import kourosh.calgaryhacks.R;
 public class ProfMain extends AppCompatActivity {
     private ArrayList<Course> courseList;
     private String profEmail;
+    private ListView lv;
+    private CourseAdapter courseAdapter;
 
 
     @Override
@@ -27,18 +28,10 @@ public class ProfMain extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-            }
-        });
-
         getCourseList();
 
-        CourseAdapter courseAdapter = new CourseAdapter(this,courseList);
-        ListView lv = (ListView) findViewById(R.id.profMainListview);
+        courseAdapter = new CourseAdapter(this,courseList);
+        lv = (ListView) findViewById(R.id.profMainListview);
         lv.setAdapter(courseAdapter);
 
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener(){
@@ -68,10 +61,17 @@ public class ProfMain extends AppCompatActivity {
 
 
 
-    public void addCourse(View view){
-        startActivity(new Intent(this,addCourse.class));
+    public void openCourseAdding(View view){
+        startActivity(new Intent(this,CourseAdding.class));
 
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        courseList.add(new Course(123,"2ewrwfa","Afadssaf"));
+        courseAdapter.update();
+        lv.setAdapter(courseAdapter);
 
+    }
 }

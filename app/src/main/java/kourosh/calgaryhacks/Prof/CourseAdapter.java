@@ -40,6 +40,10 @@ public class CourseAdapter extends BaseAdapter {
         return i;
     }
 
+    public void update(){
+        notifyDataSetChanged();
+    }
+
     @Override
     public View getView(int i, View view, ViewGroup viewGroup) {
 

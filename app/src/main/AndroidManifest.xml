@@ -17,11 +17,15 @@
         <activity
             android:name=".Prof.ProfMain"
             android:label="@string/title_activity_prof_main"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
 
 
         <activity android:name=".Login.RegisterActivity" />
-        <activity android:name=".Prof.addCourse" />
+        <activity android:name=".Prof.CourseAdding" />
 
 
         <activity
