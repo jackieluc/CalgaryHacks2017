@@ -9,7 +9,17 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="kourosh.calgaryhacks.studentliveui.StudentLiveActivity">
+    tools:context="kourosh.calgaryhacks.StudentLiveUI.StudentLiveActivity">
+
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/student_live_ui_list"
+        android:footerDividersEnabled="false"
+        android:headerDividersEnabled="false"
+        android:layout_below="@+id/ratingBar"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="30dp" />
 
     <com.getbase.floatingactionbutton.FloatingActionsMenu
         android:id="@+id/multiple_actions"
@@ -58,4 +68,34 @@
             android:layout_alignEnd="@+id/multiple_actions"
             android:layout_marginEnd="90dp"
             android:visibility="gone"/>
+
+    <TextView
+        android:text="@string/label_rating"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/rating_label"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:textAlignment="center"
+        android:textColor="@android:color/black" />
+
+    <RatingBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/ratingBar"
+        android:layout_below="@+id/rating_label"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:text="@string/label_question"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/label_question"
+        android:textAlignment="center"
+        android:textSize="20dp"
+        android:textColor="@android:color/black"
+        android:layout_below="@+id/ratingBar"
+        android:layout_centerHorizontal="true" />
+
 </RelativeLayout>

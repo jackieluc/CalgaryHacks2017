@@ -24,7 +24,7 @@
             android:name=".Login.LoginActivity"
             android:label="@string/title_activity_login">
         </activity>
-        <activity android:name=".studentliveui.StudentLiveActivity">
+        <activity android:name=".StudentLiveUI.StudentLiveActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
