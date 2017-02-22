@@ -1,36 +1,36 @@
 package kourosh.calgaryhacks;
 
-import java.util.ArrayList;
+import java.util.Date;
+import java.util.Timer;
+import java.util.TimerTask;
 
 /**
- * Created by Nasir on 2017-02-22.
+ * Created by kourosh on 2017-02-21.
  */
 
 public class Session {
-    public String CourseName;
-    public String Date;
-    public String ProfID;
+    protected Timer timer = new Timer();
+    protected TimerTask turnoff = new TimerTask(){
+        public void run(){
+            live = false;
 
-    public String Rating;
-   // public ArrayList<Question> questionList;
+            //turnoff live mode for database
+        }
+    };
 
-    public Session(String Date, String ProfID, String CourseName, String Rating)
-    {
-        this.Date = Date;
-        this.ProfID = ProfID;
-        this.CourseName = CourseName;
-        this.Rating = Rating;
-        //this.questionList = questionList;
+    protected Boolean live;
+    protected Date day;
 
+
+    public Date getid(){
+        return day;
     }
+    public Session(int length){
+        day = new Date();
+        live = true;
+//        timer.schedule(turnoff,length*60*1000);
 
-
-    public Session()
-    {
-
-    }
-    public void calculateRating()
-    {
+        //send data to database
 
     }
 }

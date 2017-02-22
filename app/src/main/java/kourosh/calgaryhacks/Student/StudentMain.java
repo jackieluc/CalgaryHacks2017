@@ -1,4 +1,4 @@
-package kourosh.calgaryhacks.Prof;
+package kourosh.calgaryhacks.Student;
 
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -7,34 +7,30 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
-import android.content.Intent;
-import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
 import java.util.ArrayList;
 
-
 import kourosh.calgaryhacks.Course;
 import kourosh.calgaryhacks.CourseAdapter;
+import kourosh.calgaryhacks.Prof.ProfCourse;
 import kourosh.calgaryhacks.R;
 
-public class ProfMain extends AppCompatActivity {
+public class StudentMain extends AppCompatActivity {
     private ArrayList<Course> courseList;
     private String profEmail;
     private ListView lv;
     private CourseAdapter courseAdapter;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
 
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_prof_main);
+        setContentView(R.layout.activity_student_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -48,7 +44,7 @@ public class ProfMain extends AppCompatActivity {
 
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Intent intent = new Intent(view.getContext(),ProfCourse.class);
+                Intent intent = new Intent(view.getContext(),StudentCourse.class);
                 intent.putExtra("ID",courseList.get(i).getID());
                 intent.putExtra("Name",courseList.get(i).getName());
                 startActivity(intent);
@@ -59,7 +55,7 @@ public class ProfMain extends AppCompatActivity {
 
     private void getCourseList(){
 
-        //Access database for courses based on prof's email
+        //Access database for courses based on student's email
 
         courseList= new ArrayList<Course>();
         courseList.add(new Course(232,"Swager","Macneil"));
@@ -70,9 +66,11 @@ public class ProfMain extends AppCompatActivity {
 
     }
 
-    public void openCourseAdding(View view){
+
+
+    public void openCourseEnrolling(View view){
         LayoutInflater li = LayoutInflater.from(this);
-        View promptsView = li.inflate(R.layout.add_course, null);
+        View promptsView = li.inflate(R.layout.enrol_course, null);
 
         AlertDialog.Builder aDB = new AlertDialog.Builder(this);
         aDB.setView(promptsView);
@@ -91,7 +89,6 @@ public class ProfMain extends AppCompatActivity {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         //Add course
-
                         findViewById(R.id.professor);
                         findViewById(R.id.courseName);
                         onResume();
@@ -101,6 +98,7 @@ public class ProfMain extends AppCompatActivity {
 
         AlertDialog aD = aDB.create();
         aD.show();
+
     }
 
     @Override

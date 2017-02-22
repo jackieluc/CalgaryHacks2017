@@ -15,6 +15,22 @@
       },
       "oauth_client": [
         {
+          "client_id": "359168054550-bq9i279ru46cd2vuv2gdtemlnom6euv7.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "kourosh.calgaryhacks",
+            "certificate_hash": "a6760df7aa8e8bcdb6e26c93fdc9376c8b70d800"
+          }
+        },
+        {
+          "client_id": "359168054550-pgpuihi9ldfmsuk93pcqodoetc2h599d.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "kourosh.calgaryhacks",
+            "certificate_hash": "a27c369e7648b49e6fd2d2382a4e15e7e96bca29"
+          }
+        },
+        {
           "client_id": "359168054550-ffs1ljbn3i43nommed8nrgccv7gccpn0.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {

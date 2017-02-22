@@ -1,40 +1,35 @@
-package kourosh.calgaryhacks;
+import java.util.ArrayList;
 
 /**
- * Created by Nasir on 2017-02-21.
+ * Created by kourosh on 2017-02-21.
  */
 
 public class Course {
-    private String ProfName;
-    private String CourseName;
 
-    public Course(String instructorName, String CourseName) {
-        this.ProfName = instructorName;
-        this.CourseName = CourseName;
+    protected String name;
+    protected String profname;
+
+
+
+    public Course(int id, String name,String profname ){
+        this.name = name;
+        this.profname = profname;
+        //send data to server
     }
 
-    public Course()
-    {
 
+    public String getName(){
+        return name;
     }
 
-    public void setProfName(String ProfName)
-    {
-        this.ProfName = ProfName;
+    public String getID(){
+        return profname+name;
     }
 
-    public void setCourseName(String CourseName)
-    {
-        this.CourseName = CourseName;
-    }
 
-    public String getProfName()
-    {
-        return ProfName;
-    }
-
-    public String getCourseName()
-    {
-        return CourseName;
+    public ArrayList<Session> getSessions(){
+        //Run query to get all the session info
+        //Search all of entries for the class in the database
+        return new ArrayList<Session>();
     }
 }

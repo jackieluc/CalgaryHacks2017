@@ -7,75 +7,75 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
-import android.content.Intent;
-import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.EditText;
 import android.widget.ListView;
 
 import java.util.ArrayList;
+import java.util.Date;
 
-
-import kourosh.calgaryhacks.Course;
-import kourosh.calgaryhacks.CourseAdapter;
+import kourosh.calgaryhacks.DateFormat;
 import kourosh.calgaryhacks.R;
+import kourosh.calgaryhacks.Session;
+import kourosh.calgaryhacks.SessionAdapter;
 
-public class ProfMain extends AppCompatActivity {
-    private ArrayList<Course> courseList;
-    private String profEmail;
+public class ProfCourse extends AppCompatActivity {
+
+    private ArrayList<Session> sessionList;
+    private int courseid;
     private ListView lv;
-    private CourseAdapter courseAdapter;
+    private SessionAdapter sessionAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
-
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_prof_main);
+        setContentView(R.layout.activity_prof_course);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        String name = getIntent().getStringExtra("Name");
+        toolbar.setTitle(name);
         setSupportActionBar(toolbar);
 
-        getCourseList();
+        String id = getIntent().getStringExtra("ID");
+        getSessionList(id);
 
-        courseAdapter = new CourseAdapter(this,courseList);
-        lv = (ListView) findViewById(R.id.MainListview);
-        lv.setAdapter(courseAdapter);
+        sessionAdapter = new SessionAdapter(this,sessionList);
+        lv = (ListView) findViewById(R.id.profCourseListview);
+        lv.setAdapter(sessionAdapter);
 
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener(){
 
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Intent intent = new Intent(view.getContext(),ProfCourse.class);
-                intent.putExtra("ID",courseList.get(i).getID());
-                intent.putExtra("Name",courseList.get(i).getName());
+                Intent intent = new Intent(view.getContext(),ProfSession.class);
+//                intent.putExtra("Day",sessionList.get(i).day);
                 startActivity(intent);
             }
         });
-
     }
 
-    private void getCourseList(){
+
+    private void getSessionList(String id){
 
         //Access database for courses based on prof's email
 
-        courseList= new ArrayList<Course>();
-        courseList.add(new Course(232,"Swager","Macneil"));
-        courseList.add(new Course(22332,"Swag3212er","Macneil"));
-        courseList.add(new Course(23432,"Swage1212r","Macneil"));
-        courseList.add(new Course(232322,"Swage121r","Macneil"));
+        sessionList= new ArrayList<Session>();
+        sessionList.add(new Session(60));
 
 
     }
 
-    public void openCourseAdding(View view){
+
+
+    public void addSession(View view){
         LayoutInflater li = LayoutInflater.from(this);
-        View promptsView = li.inflate(R.layout.add_course, null);
+        final View promptsView = li.inflate(R.layout.add_session, null);
 
         AlertDialog.Builder aDB = new AlertDialog.Builder(this);
         aDB.setView(promptsView);
+        EditText ed = (EditText) promptsView.findViewById(R.id.date);
+        ed.setText(DateFormat.getDateString(new Date()));
+
 
 
         aDB
@@ -92,8 +92,8 @@ public class ProfMain extends AppCompatActivity {
                     public void onClick(DialogInterface dialog, int which) {
                         //Add course
 
-                        findViewById(R.id.professor);
-                        findViewById(R.id.courseName);
+
+                        promptsView.findViewById(R.id.duration);
                         onResume();
                     }
                 });
@@ -101,6 +101,8 @@ public class ProfMain extends AppCompatActivity {
 
         AlertDialog aD = aDB.create();
         aD.show();
+
+
     }
 
     @Override
@@ -108,9 +110,9 @@ public class ProfMain extends AppCompatActivity {
         super.onResume();
 
         //Update the database
-        courseList.add(new Course(123,"2ewrwfa","Afadssaf"));
-        courseAdapter.update();
-        lv.setAdapter(courseAdapter);
+
+        sessionAdapter.update();
+        lv.setAdapter(sessionAdapter);
 
     }
 }
