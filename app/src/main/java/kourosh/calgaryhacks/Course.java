@@ -1,4 +1,4 @@
-package kourosh.calgaryhacks.Prof;
+package kourosh.calgaryhacks;
 
 import java.util.ArrayList;
 
@@ -8,17 +8,24 @@ import java.util.ArrayList;
 
 public class Course {
 
-    protected int id;
     protected String name;
     protected String profname;
 
 
 
     public Course(int id, String name,String profname ){
-        this.id = id;
         this.name = name;
         this.profname = profname;
         //send data to server
+    }
+
+
+    public String getName(){
+        return name;
+    }
+
+    public String getID(){
+        return profname+name;
     }
 
 

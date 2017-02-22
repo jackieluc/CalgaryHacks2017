@@ -22,5 +22,6 @@
     <string name="prompt_firstname">First Name</string>
     <string name="prompt_lastname">Last Name</string>
     <string name="prompt_occupation">I am a...</string>
+    <string name="title_activity_prof_course">ProfCourse</string>
 
 </resources>

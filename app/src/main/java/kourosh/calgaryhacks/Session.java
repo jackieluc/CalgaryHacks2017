@@ -1,4 +1,4 @@
-package kourosh.calgaryhacks.Prof;
+package kourosh.calgaryhacks;
 
 import java.util.Date;
 import java.util.Timer;
@@ -25,11 +25,13 @@ public class Session {
     public Session(int length){
         day = new Date();
         live = true;
-        timer.schedule(turnoff,length*60*1000);
+//        timer.schedule(turnoff,length*60*1000);
 
         //send data to database
 
     }
+
+
 
 
 }

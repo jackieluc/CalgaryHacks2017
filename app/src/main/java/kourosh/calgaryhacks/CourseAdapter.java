@@ -1,4 +1,4 @@
-package kourosh.calgaryhacks.Prof;
+package kourosh.calgaryhacks;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -8,8 +8,6 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import java.util.ArrayList;
-
-import kourosh.calgaryhacks.R;
 
 /**
  * Created by kourosh on 2017-02-21.
