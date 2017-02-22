@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "359168054550",
+    "firebase_url": "https://calgaryhacks2017.firebaseio.com",
+    "project_id": "calgaryhacks2017",
+    "storage_bucket": "calgaryhacks2017.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:359168054550:android:3edc83591148f588",
+        "android_client_info": {
+          "package_name": "kourosh.calgaryhacks"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "359168054550-h62dd81eehcj786ecteiiuioraokluqp.apps.googleusercontent.com",
+          "client_type": 3
+        },
+        {
+          "client_id": "359168054550-udr005h8hn5g8tr698rkjg8mef8jdot1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCyEbvdfSey-WVH-viZB12xE_C0sPa_o58"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
