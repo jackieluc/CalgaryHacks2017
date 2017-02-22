@@ -23,7 +23,7 @@ public class StudentCourse extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_prof_course);
+        setContentView(R.layout.activity_student_course);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         String name = getIntent().getStringExtra("Name");
         toolbar.setTitle(name);
@@ -55,7 +55,6 @@ public class StudentCourse extends AppCompatActivity {
 
         sessionList= new ArrayList<Session>();
         sessionList.add(new Session(60));
-
 
     }
 

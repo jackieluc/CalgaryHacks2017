@@ -34,6 +34,7 @@ public class SessionDetailedAdapter extends BaseAdapter{
     private ArrayList<Integer> colors;
     private PieDataSet pieDataSet;
     private RatingBar ratingBar;
+    private PieData pieData;
 
     public SessionDetailedAdapter (Context context, ArrayList <PieEntry> entries, float rating,ArrayList<Question> questionList){
         this.questionList = questionList;
@@ -133,7 +134,8 @@ public class SessionDetailedAdapter extends BaseAdapter{
         colors.add(Color.GREEN);
         pieDataSet.setColors(colors);
 
-        PieData pieData = new PieData(pieDataSet);
+        pieData = new PieData(pieDataSet);
+
         pieChart.setData(pieData);
         pieChart.invalidate();
 
@@ -145,14 +147,7 @@ public class SessionDetailedAdapter extends BaseAdapter{
         this.entries = entries;
         this.rating = rating;
         this.questionList = questionList;
-
-        pieDataSet = new PieDataSet(entries,"Composition");
-        PieData pieData = new PieData(pieDataSet);
-        pieChart.setData(pieData);
-        pieChart.invalidate();
-
-        ratingBar.setRating(rating);
-
+        
         notifyDataSetChanged();
     }
 }
