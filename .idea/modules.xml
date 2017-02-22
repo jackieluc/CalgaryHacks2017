@@ -3,11 +3,6 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/CalgaryHacks2017.iml" filepath="$PROJECT_DIR$/CalgaryHacks2017.iml" />
-<<<<<<< HEAD
-      <module fileurl="file://$PROJECT_DIR$/CalgaryHacks2017.iml" filepath="$PROJECT_DIR$/CalgaryHacks2017.iml" />
-      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-=======
->>>>>>> Prof/StudentUIPlus
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>
