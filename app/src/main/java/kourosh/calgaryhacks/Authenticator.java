@@ -1,6 +1,7 @@
 package kourosh.calgaryhacks;
 
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.*;
 
 /**
@@ -9,7 +10,21 @@ import com.google.firebase.auth.*;
 
 public class Authenticator
 {
-    FirebaseAuth auth;
+    public static Authenticator current;
+
+    private FirebaseAuth auth;
+    private AuthenticatorActivity activity;
+
+    public Authenticator(FirebaseApp app)
+    {
+        auth = FirebaseAuth.getInstance();
+        current = this;
+    }
+
+    public void setActivity(AuthenticatorActivity activity)
+    {
+        this.activity = activity;
+    }
 
     public void createNewUser(String email, String password)
     {
@@ -18,12 +33,12 @@ public class Authenticator
         if (email.endsWith("@ucalgary.ca"))
         {
             Task<AuthResult> task = auth.createUserWithEmailAndPassword(email, password);
-            task.addOnSuccessListener(this::onCreateUserSuccess);
+            task.addOnSuccessListener((AuthResult a) -> activity.onSuccess());
             task.addOnFailureListener(this::onCreateUserFailure);
         }
         else
         {
-            // NOT A UCALGARY EMAIL
+            activity.setEmailError("Must be a ucalgary.ca email");
         }
     }
 
@@ -34,51 +49,41 @@ public class Authenticator
         if (email.endsWith("@ucalgary.ca"))
         {
             Task<AuthResult> task = auth.signInWithEmailAndPassword(email, password);
-            task.addOnSuccessListener(this::onSignInSuccess);
+            task.addOnSuccessListener((AuthResult a) -> activity.onSuccess());
             task.addOnFailureListener(this::onSignInFailure);
         }
         else
         {
-            // NOT A UCALGARY EMAIL
+            activity.setEmailError("Must be a ucalgary.ca email");
         }
-    }
-
-    private void onCreateUserSuccess(AuthResult result)
-    {
-        // Creating user was successful, we are now signed in
-        // Go to next screen
     }
 
     private void onCreateUserFailure(Exception ex)
     {
         if (ex instanceof FirebaseAuthWeakPasswordException)
         {
-            // Password too weak
+            activity.setPasswordError("Password is too weak. " + ((FirebaseAuthWeakPasswordException)ex).getReason());
         }
         else if (ex instanceof FirebaseAuthInvalidCredentialsException)
         {
-            // Error with email
+            activity.setEmailError("Email is invalid");
         }
         else if (ex instanceof FirebaseAuthUserCollisionException)
         {
-            // Email already exists
+            activity.setEmailError("This email already exists");
         }
-    }
-
-    private void onSignInSuccess(AuthResult auth)
-    {
-        // Sign in successful
     }
 
     private void onSignInFailure(Exception ex)
     {
         if (ex instanceof FirebaseAuthInvalidUserException)
         {
+            activity.setEmailError("Email does not exist");
             // user doesnt exist
         }
         else if (ex instanceof FirebaseAuthInvalidCredentialsException)
         {
-            // password is wrong
+            activity.setPasswordError("Password is incorrect");
         }
     }
 }

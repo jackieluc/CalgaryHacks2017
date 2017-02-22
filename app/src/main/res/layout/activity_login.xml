@@ -11,13 +11,6 @@
     tools:context="login.LoginActivity">
 
     <!-- Login progress -->
-    <ProgressBar
-        android:id="@+id/login_progress"
-        style="?android:attr/progressBarStyleLarge"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:visibility="gone" />
 
     <ScrollView
         android:id="@+id/login_form"
@@ -41,8 +34,7 @@
                     android:layout_height="wrap_content"
                     android:hint="@string/prompt_email"
                     android:inputType="textEmailAddress"
-                    android:maxLines="1"
-                    android:singleLine="true" />
+                    android:maxLines="1" />
 
             </android.support.design.widget.TextInputLayout>
 
@@ -59,8 +51,7 @@
                     android:imeActionLabel="@string/action_sign_in_short"
                     android:imeOptions="actionUnspecified"
                     android:inputType="textPassword"
-                    android:maxLines="1"
-                    android:singleLine="true" />
+                    android:maxLines="1" />
 
             </android.support.design.widget.TextInputLayout>
 
@@ -79,7 +70,7 @@
                 android:layout_height="match_parent"
                 android:id="@+id/register"
                 android:layout_marginTop="30px"
-                android:textSize="16dp"
+                android:textSize="16sp"
                 android:textAlignment="center"
                 android:clickable="true"
                 android:onClick="onClick" />
