@@ -30,16 +30,18 @@
             android:id="@+id/submit_inquiry"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            fab:fab_icon="@drawable/submit_inquiry"
             fab:fab_colorNormal="@color/white"
-            fab:fab_title="Submit an inquiry"
+            fab:fab_title="Ask the professor"
             fab:fab_colorPressed="@color/white_pressed"/>
 
         <com.getbase.floatingactionbutton.FloatingActionButton
             android:id="@+id/ask_question"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            fab:fab_icon="@drawable/question_mark"
             fab:fab_colorNormal="@color/white"
-            fab:fab_title="Ask a question"
+            fab:fab_title="Ask the class"
             fab:fab_colorPressed="@color/white_pressed"/>
 
     </com.getbase.floatingactionbutton.FloatingActionsMenu>
