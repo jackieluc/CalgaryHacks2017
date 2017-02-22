@@ -15,10 +15,6 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".MainActivity" />
-        <activity
-            android:name=".Prof.ProfMain"
-            android:label="@string/title_activity_prof_main"
-            android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".Login.RegisterActivity" />
         <activity android:name=".Prof.addCourse" />
         <activity
@@ -27,6 +23,7 @@
             android:theme="@style/AppTheme.NoActionBar">
             android:label="@string/title_activity_login">
         </activity>
+
         <activity android:name=".StudentLiveUI.StudentLiveActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -43,7 +40,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Login.RegisterActivity" />
         <activity
             android:name=".Prof.ProfCourse"
             android:label="@string/title_activity_prof_course"
