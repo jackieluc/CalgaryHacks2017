@@ -22,6 +22,9 @@ public class Session {
     protected Date day;
 
 
+    public Date getid(){
+        return day;
+    }
     public Session(int length){
         day = new Date();
         live = true;

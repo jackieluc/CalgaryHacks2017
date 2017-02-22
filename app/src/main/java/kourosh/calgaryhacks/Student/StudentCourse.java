@@ -1,5 +1,7 @@
 package kourosh.calgaryhacks.Student;
 
+
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -12,6 +14,7 @@ import java.util.ArrayList;
 import kourosh.calgaryhacks.Session;
 import kourosh.calgaryhacks.SessionAdapter;
 import kourosh.calgaryhacks.R;
+import kourosh.calgaryhacks.StudentLiveUI.StudentLiveActivity;
 
 public class StudentCourse extends AppCompatActivity {
 
@@ -41,9 +44,9 @@ public class StudentCourse extends AppCompatActivity {
 
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-//                Intent intent = new Intent(view.getContext(),ProfCourse.class);
-//                intent.putExtra("Day",sessionList.get(i).day);
-//                startActivity(intent);
+                Intent intent = new Intent(view.getContext(),StudentLiveActivity.class);
+                intent.putExtra("Day",sessionList.get(i).getid());
+                startActivity(intent);
             }
         });
     }

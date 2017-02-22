@@ -12,7 +12,7 @@ public class Question {
     public Question() {
         this.id = Double.toString(Math.random());
         this.sender = "anonymous";
-        this.body = "";
+        this.body = "This is a random question";
         this.score = 0;
         this.isClicked = false;
     }
