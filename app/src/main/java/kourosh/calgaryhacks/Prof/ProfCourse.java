@@ -48,7 +48,7 @@ public class ProfCourse extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 Intent intent = new Intent(view.getContext(),ProfSession.class);
-//                intent.putExtra("Day",sessionList.get(i).day);
+                intent.putExtra("Day",sessionList.get(i).getid());
                 startActivity(intent);
             }
         });
@@ -60,8 +60,12 @@ public class ProfCourse extends AppCompatActivity {
         //Access database for courses based on prof's email
 
         sessionList= new ArrayList<Session>();
-        sessionList.add(new Session(60));
-
+//        sessionList.add(new Session(60));
+        sessionList.add(new Session(DateFormat.getDate("07 11, 2016")));
+        sessionList.add(new Session(DateFormat.getDate("06 12, 2016")));
+        sessionList.add(new Session(DateFormat.getDate("05 13, 2016")));
+        sessionList.add(new Session(DateFormat.getDate("04 15, 2016")));
+        sessionList.add(new Session(DateFormat.getDate("04 11, 2016")));
 
     }
 
@@ -93,7 +97,10 @@ public class ProfCourse extends AppCompatActivity {
                         //Add course
 
 
-                        promptsView.findViewById(R.id.duration);
+                        EditText ed = (EditText) promptsView.findViewById(R.id.duration);
+
+                        sessionList.add(new Session(Integer.parseInt(ed.getText().toString())));
+                        sessionAdapter.notifyDataSetChanged();
                         onResume();
                     }
                 });

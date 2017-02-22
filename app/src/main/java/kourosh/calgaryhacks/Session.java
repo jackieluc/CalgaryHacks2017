@@ -25,6 +25,8 @@ public class Session {
     public Date getid(){
         return day;
     }
+
+
     public Session(int length){
         day = new Date();
         live = true;
@@ -32,6 +34,11 @@ public class Session {
 
         //send data to database
 
+    }
+
+    public Session (Date day){
+        this.day = day;
+        live = false;
     }
 
 

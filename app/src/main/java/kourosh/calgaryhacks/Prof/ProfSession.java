@@ -44,10 +44,10 @@ public class ProfSession extends AppCompatActivity {
         //get data from database
 
         ArrayList<Question> questions = new ArrayList<Question>();
-        questions.add( new Question());
-        questions.add( new Question());
-        questions.add( new Question());
-        questions.add( new Question());
+        questions.add( new Question("What is Mitochondria?"));
+        questions.add( new Question("What is a brain cell?"));
+        questions.add( new Question("Why is the sky blue?"));
+        questions.add( new Question("Why is Nasir so awesome?"));
         return questions;
 
     }
@@ -56,7 +56,7 @@ public class ProfSession extends AppCompatActivity {
         ArrayList <PieEntry> entries = new ArrayList<>();
 
 
-        entries.add(new PieEntry(25.3f,"I Hate you"));
+        entries.add(new PieEntry(25.3f,"I Don't Understand"));
         entries.add(new PieEntry(80.3f,"I love you"));
 
         return entries;
@@ -67,11 +67,11 @@ public class ProfSession extends AppCompatActivity {
         ArrayList <PieEntry> entries = new ArrayList<>();
 
 
-        entries.add(new PieEntry(25.3f,"I Hate you"));
-        entries.add(new PieEntry(80.3f,"I love you"));
+        entries.add(new PieEntry(25.0f,"I Don't Understand!"));
+        entries.add(new PieEntry(33.0f,"Not Enough Examples!"));
 
-        entries.add(new PieEntry(25.3f,"Too fast"));
-        entries.add(new PieEntry(80.3f,"Too slow"));
+        entries.add(new PieEntry(15.0f,"Too fast"));
+        entries.add(new PieEntry(17.0f,"Too slow"));
 
         return entries;
     }

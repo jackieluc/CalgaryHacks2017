@@ -14,6 +14,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.EditText;
 import android.widget.ListView;
 
 import java.util.ArrayList;
@@ -39,7 +40,7 @@ public class ProfMain extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         getCourseList();
-
+        profEmail = "sunnychan@gmail.com";
         courseAdapter = new CourseAdapter(this,courseList);
         lv = (ListView) findViewById(R.id.MainListview);
 
@@ -56,6 +57,7 @@ public class ProfMain extends AppCompatActivity {
             }
         });
 
+
     }
 
     private void getCourseList(){
@@ -63,10 +65,10 @@ public class ProfMain extends AppCompatActivity {
         //Access database for courses based on prof's email
 
         courseList= new ArrayList<Course>();
-        courseList.add(new Course(232,"Swager","Macneil"));
-        courseList.add(new Course(22332,"Swag3212er","Macneil"));
-        courseList.add(new Course(23432,"Swage1212r","Macneil"));
-        courseList.add(new Course(232322,"Swage121r","Macneil"));
+        courseList.add(new Course(232,"CPSC 471","SunnyChan"));
+        courseList.add(new Course(233,"CPSC 123","Sunny Chan"));
+        courseList.add(new Course(234,"CPSC 101","Sunny Chan"));
+        courseList.add(new Course(235,"CPSC 481","Sunny Chan"));
 
 
     }
@@ -75,7 +77,7 @@ public class ProfMain extends AppCompatActivity {
 
     public void openCourseAdding(View view){
         LayoutInflater li = LayoutInflater.from(this);
-        View promptsView = li.inflate(R.layout.add_course, null);
+        final View promptsView = li.inflate(R.layout.add_course, null);
 
         AlertDialog.Builder aDB = new AlertDialog.Builder(this);
         aDB.setView(promptsView);
@@ -95,8 +97,13 @@ public class ProfMain extends AppCompatActivity {
                     public void onClick(DialogInterface dialog, int which) {
                         //Add course
 
-                        findViewById(R.id.professor);
-                        findViewById(R.id.courseName);
+
+
+                        EditText ed1 = (EditText) promptsView.findViewById(R.id.professor);
+                        ed1.setText(profEmail);
+                        EditText ed2 = (EditText) promptsView.findViewById(R.id.courseName);
+                        courseList.add(new Course(236, ed2.getText().toString(),ed1.getText().toString()));
+                        courseAdapter.notifyDataSetChanged();
                         onResume();
                     }
                 });
@@ -106,14 +113,14 @@ public class ProfMain extends AppCompatActivity {
         aD.show();
     }
 
-    @Override
-    protected void onResume() {
-        super.onResume();
-
-        //Update the database
-        courseList.add(new Course(123,"2ewrwfa","Afadssaf"));
-        courseAdapter.update();
-        lv.setAdapter(courseAdapter);
-
-    }
+//    @Override
+//    protected void onResume() {
+//        super.onResume();
+//
+//        //Update the database
+//        courseList.add(new Course(123,"2ewrwfa","Afadssaf"));
+//        courseAdapter.update();
+//        lv.setAdapter(courseAdapter);
+//
+//    }
 }

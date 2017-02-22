@@ -25,6 +25,14 @@ public class Question {
         this.isClicked = isClicked;
     }
 
+    public Question(String body){
+        this.body = body;
+        this.id = Double.toString(Math.random());
+        this.sender = "anonymous";
+        this.score = 0;
+        this.isClicked = false;
+    }
+
     public void upVote() {
         score++;
     }
