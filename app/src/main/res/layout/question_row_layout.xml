@@ -1,34 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
 
-    <ImageButton
+    <ImageView
         android:layout_width="40dp"
         app:srcCompat="@drawable/upvote"
         android:id="@+id/upvoteButton"
-        android:layout_height="40dp"
+        android:layout_height="110dp"
         android:clickable="true"
-        android:onClick="onClick"/>
+        android:onClick="onClick"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true" />
 
     <TextView
         android:text="0"
         android:layout_width="wrap_content"
-        android:layout_height="68dp"
+        android:layout_height="wrap_content"
         android:id="@+id/question_score"
-        android:layout_weight="1.76"
-        android:textAlignment="textEnd"
+        android:textAlignment="center"
         android:textSize="16dp"
-        android:textColor="@android:color/black" />
+        android:textColor="@android:color/black"
+        android:layout_weight="2.18"
+        android:layout_alignBottom="@+id/upvoteButton"
+        android:layout_toEndOf="@+id/upvoteButton"
+        android:layout_marginBottom="44dp" />
 
     <TextView
         android:text="Question"
-        android:layout_width="wrap_content"
-        android:layout_height="64dp"
+        android:layout_height="108dp"
         android:id="@+id/question_body"
         android:layout_weight="9.65"
         android:textSize="16dp"
-        android:textColor="@android:color/black" />
-</LinearLayout>
+        android:textColor="@android:color/black"
+        android:layout_width="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_toEndOf="@+id/question_score"
+        android:layout_marginStart="15dp"
+        android:paddingTop="20dp" />
+</RelativeLayout>

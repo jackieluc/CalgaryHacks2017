@@ -1,15 +1,15 @@
 package kourosh.calgaryhacks.StudentLiveUI;
 
-import android.media.Image;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import com.getbase.floatingactionbutton.FloatingActionButton;
 import com.getbase.floatingactionbutton.FloatingActionsMenu;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 import android.view.View.OnClickListener;
-import android.widget.ImageButton;
 import android.widget.ListView;
-import android.widget.TextView;
 
 import java.util.ArrayList;
 
@@ -21,6 +21,7 @@ public class StudentLiveActivity extends AppCompatActivity {
 
     // list of questions
     private ArrayList<Question> questionList = new ArrayList<>();
+    private DatabaseReference database = FirebaseDatabase.getInstance().getReference("Questions");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,10 +74,16 @@ public class StudentLiveActivity extends AppCompatActivity {
 
     private void getQuestions(){
 
-        questionList.add(new Question("1","Swager","Macneil"));
+        questionList.add(new Question("1","Swager","1234567"));
         questionList.add(new Question("12","Swag3212er","Macneil"));
-        questionList.add(new Question("123","Swage1212r","Macneil"));
-        questionList.add(new Question("1234","Swage121r","Macneil"));
+        questionList.add(new Question("123","Swage1212r","test"));
+        questionList.add(new Question("1234","Swage121r","1111111111111111111111111"));
+
+
+        database.child(questionList.get(0).id).setValue(questionList.get(0));
+        database.child(questionList.get(1).id).setValue(questionList.get(1));
+        database.child(questionList.get(2).id).setValue(questionList.get(2));
+        database.child(questionList.get(3).id).setValue(questionList.get(3));
     }
 
 }
