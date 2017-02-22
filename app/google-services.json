@@ -8,41 +8,6 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:359168054550:android:3edc83591148f588",
-        "android_client_info": {
-          "package_name": "kourosh.CalgaryHacks2017"
-        }
-      },
-      "oauth_client": [
-        {
-          "client_id": "359168054550-h62dd81eehcj786ecteiiuioraokluqp.apps.googleusercontent.com",
-          "client_type": 3
-        },
-        {
-          "client_id": "359168054550-udr005h8hn5g8tr698rkjg8mef8jdot1.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
-      "api_key": [
-        {
-          "current_key": "AIzaSyCyEbvdfSey-WVH-viZB12xE_C0sPa_o58"
-        }
-      ],
-      "services": {
-        "analytics_service": {
-          "status": 1
-        },
-        "appinvite_service": {
-          "status": 1,
-          "other_platform_oauth_client": []
-        },
-        "ads_service": {
-          "status": 2
-        }
-      }
-    },
-    {
-      "client_info": {
         "mobilesdk_app_id": "1:359168054550:android:e19769d3b0a5a664",
         "android_client_info": {
           "package_name": "kourosh.calgaryhacks"
