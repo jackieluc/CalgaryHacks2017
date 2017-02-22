@@ -15,10 +15,10 @@ public class Authenticator
     private FirebaseAuth auth;
     private AuthenticatorActivity activity;
 
-    public Authenticator(FirebaseApp app)
+    static
     {
-        auth = FirebaseAuth.getInstance();
-        current = this;
+        current = new Authenticator();
+        current.auth = FirebaseAuth.getInstance();
     }
 
     public void setActivity(AuthenticatorActivity activity)
