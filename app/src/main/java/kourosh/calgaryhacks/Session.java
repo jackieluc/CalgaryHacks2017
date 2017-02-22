@@ -12,7 +12,7 @@ public class Session {
     public String ProfID;
 
     public String Rating;
-    //public ArrayList<Question> questionList;
+   // public ArrayList<Question> questionList;
 
     public Session(String Date, String ProfID, String CourseName, String Rating)
     {
