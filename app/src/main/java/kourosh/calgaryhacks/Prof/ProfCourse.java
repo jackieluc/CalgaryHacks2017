@@ -15,6 +15,7 @@ import android.widget.ListView;
 import java.util.ArrayList;
 import java.util.Date;
 
+import kourosh.calgaryhacks.DateFormat;
 import kourosh.calgaryhacks.R;
 import kourosh.calgaryhacks.Session;
 import kourosh.calgaryhacks.SessionAdapter;
@@ -73,7 +74,7 @@ public class ProfCourse extends AppCompatActivity {
         AlertDialog.Builder aDB = new AlertDialog.Builder(this);
         aDB.setView(promptsView);
         EditText ed = (EditText) promptsView.findViewById(R.id.date);
-        ed.setText((new Date()).toString());
+        ed.setText(DateFormat.getDateString(new Date()));
 
 
 

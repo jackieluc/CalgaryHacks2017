@@ -49,7 +49,7 @@ public class SessionAdapter extends BaseAdapter {
         View rowView = inflater.inflate(R.layout.session_row_layout,viewGroup,false);
 
         TextView courseName = (TextView) rowView.findViewById(R.id.courseName);
-        courseName.setText(sessionList.get(i).day.toString());
+        courseName.setText(DateFormat.getDateString(sessionList.get(i).day));
 
         return rowView;
     }

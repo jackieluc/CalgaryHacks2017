@@ -20,7 +20,6 @@ import java.util.ArrayList;
 
 import kourosh.calgaryhacks.Question;
 import kourosh.calgaryhacks.R;
-import kourosh.calgaryhacks.Session;
 
 /**
  * Created by kourosh on 2017-02-22.
@@ -83,13 +82,12 @@ public class SessionDetailedAdapter extends BaseAdapter{
 
         else if (viewtype == 2){
             LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            rowView = inflater.inflate(R.layout.question_row_layout,viewGroup,false);
+            rowView = inflater.inflate(R.layout.session_row_question,viewGroup,false);
             i = i -2;
 
             TextView questionBody = (TextView) rowView.findViewById(R.id.question_body);
             questionBody.setText(questionList.get(i).body);
 
-            ImageButton ib = (ImageButton) rowView.findViewById(R.id.upvoteButton);
             TextView scoreView = (TextView) rowView.findViewById(R.id.question_score);
             scoreView.setText("0");
 
