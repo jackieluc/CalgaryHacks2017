@@ -6,6 +6,7 @@
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
     <uses-permission android:name="android.permission.READ_PROFILE" />
     <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.VIBRATE"/>
 
     <application
         android:allowBackup="true"
@@ -22,6 +23,8 @@
         <activity android:name=".Prof.addCourse" />
         <activity
             android:name=".Login.LoginActivity"
+            android:label="@string/title_activity_login"
+            android:theme="@style/AppTheme.NoActionBar">
             android:label="@string/title_activity_login">
         </activity>
         <activity android:name=".StudentLiveUI.StudentLiveActivity">
@@ -30,6 +33,39 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".Prof.ProfMain"
+            android:label="@string/title_activity_prof_main"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".Login.RegisterActivity" />
+        <activity
+            android:name=".Prof.ProfCourse"
+            android:label="@string/title_activity_prof_course"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".Student.StudentMain"
+            android:label="StudentMain"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".Student.StudentCourse"
+            android:theme="@style/AppTheme.NoActionBar"/>
+
+        <activity
+            android:name=".Prof.ProfSession"
+            android:label="@string/title_activity_prof_session"
+            android:theme="@style/AppTheme.NoActionBar"/>
     </application>
 
 </manifest>

@@ -22,6 +22,8 @@
     <string name="prompt_firstname">First Name</string>
     <string name="prompt_lastname">Last Name</string>
     <string name="prompt_occupation">I am a...</string>
+    <string name="title_activity_prof_course">ProfCourse</string>
+    <string name="title_activity_prof_session">ProfSession</string>
     <string name="label_rating">Overall satisfaction of the current lecture</string>
     <string name="label_question">Questions from the class</string>
 
