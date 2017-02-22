@@ -7,7 +7,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.ImageButton;
 import android.widget.RatingBar;
 import android.widget.TextView;
 
@@ -18,7 +17,6 @@ import com.github.mikephil.charting.data.PieEntry;
 
 import java.util.ArrayList;
 
-import kourosh.calgaryhacks.Question;
 import kourosh.calgaryhacks.R;
 
 /**
@@ -147,7 +145,7 @@ public class SessionDetailedAdapter extends BaseAdapter{
         this.entries = entries;
         this.rating = rating;
         this.questionList = questionList;
-        
+
         notifyDataSetChanged();
     }
 }
