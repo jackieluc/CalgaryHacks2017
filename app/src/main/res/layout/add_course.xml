@@ -20,7 +20,7 @@
         android:layout_height="wrap_content"
         android:hint="Professor Email"
         android:maxLines="1"
-        android:inputType="none"
+        android:focusable="false"
         android:layout_alignParentTop="true"
         android:layout_alignParentStart="true" />
 

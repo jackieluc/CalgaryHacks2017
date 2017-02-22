@@ -1,9 +1,12 @@
 package kourosh.calgaryhacks.Prof;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -42,6 +45,7 @@ public class ProfMain extends AppCompatActivity {
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 Intent intent = new Intent(view.getContext(),ProfCourse.class);
                 intent.putExtra("ID",courseList.get(i).getID());
+                intent.putExtra("Name",courseList.get(i).getName());
                 startActivity(intent);
             }
         });
@@ -64,8 +68,39 @@ public class ProfMain extends AppCompatActivity {
 
 
     public void openCourseAdding(View view){
+        LayoutInflater li = LayoutInflater.from(this);
+        View promptsView = li.inflate(R.layout.add_course, null);
+
+        AlertDialog.Builder aDB = new AlertDialog.Builder(this);
+        aDB.setView(promptsView);
+
+
+        aDB
+                .setCancelable(false)
+                .setPositiveButton("Cancel", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.cancel();
+                    }
+                })
+
+                .setNegativeButton("Add", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        //Add course
+
+                        findViewById(R.id.professor);
+                        findViewById(R.id.courseName);
+                        onResume();
+                    }
+                });
+
+
+        AlertDialog aD = aDB.create();
+        aD.show();
 
     }
+
 
     @Override
     protected void onResume() {

@@ -26,9 +26,12 @@ public class ProfCourse extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_prof_course);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        String name = getIntent().getStringExtra("Name");
+        toolbar.setTitle(name);
         setSupportActionBar(toolbar);
 
-        getSessionList();
+        String id = getIntent().getStringExtra("ID");
+        getSessionList(id);
 
         sessionAdapter = new SessionAdapter(this,sessionList);
         lv = (ListView) findViewById(R.id.profCourseListview);
@@ -46,7 +49,7 @@ public class ProfCourse extends AppCompatActivity {
     }
 
 
-    private void getSessionList(){
+    private void getSessionList(String id){
 
         //Access database for courses based on prof's email
 
@@ -58,7 +61,7 @@ public class ProfCourse extends AppCompatActivity {
 
 
 
-    public void openCourseAdding(View view){
+    public void addSession(View view){
 
     }
 

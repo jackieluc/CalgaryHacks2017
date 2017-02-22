@@ -25,9 +25,13 @@ public class StudentCourse extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_prof_course);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        String name = getIntent().getStringExtra("Name");
+        toolbar.setTitle(name);
         setSupportActionBar(toolbar);
 
-        getSessionList();
+
+        String id = getIntent().getStringExtra("ID");
+        getSessionList(id);
 
         sessionAdapter = new SessionAdapter(this,sessionList);
         lv = (ListView) findViewById(R.id.profCourseListview);
@@ -45,7 +49,7 @@ public class StudentCourse extends AppCompatActivity {
     }
 
 
-    private void getSessionList(){
+    private void getSessionList(String id){
 
         //Access database for courses based on  course name
 
