@@ -3,6 +3,7 @@ package kourosh.calgaryhacks;
 import android.util.Log;
 import android.widget.Toast;
 
+import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -26,27 +27,13 @@ public class ProfCourseHandler {
     FirebaseDatabase database;
     private ArrayList<Course> courseList;
 
+
     public ProfCourseHandler()
     {
         database = FirebaseDatabase.getInstance();
         mDatabase = database.getReference("Courses");
 
-        courseList = new ArrayList<Course>();
-        mDatabase.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                // This method is called once with the initial value and again
-                // whenever data at this location is updated.
-                //String value = dataSnapshot.getValue(String.class);
-                //Log.d(TAG, "Value is: " + value);
-            }
-
-            @Override
-            public void onCancelled(DatabaseError error) {
-                // Failed to read value
-                Log.w(TAG, "Failed to read value.", error.toException());
-            }
-        });
+        courseList = new ArrayList<>();
 
     }
     public ArrayList<Course> getCourses(String instructorName)
@@ -62,8 +49,13 @@ public class ProfCourseHandler {
                     Course course = singleSnapshot.getValue(Course.class);
 
                     courseList.add(course);
+                    Log.d("Courselist", "" + course.getCourseName());
+
 
                 }
+
+                // may need to send arrayList to view adapter for courses here!!
+
             }
             @Override
             public void onCancelled(DatabaseError databaseError) {
@@ -71,18 +63,46 @@ public class ProfCourseHandler {
             }
         });
 
+        courseQuery.addChildEventListener(new ChildEventListener() {
+            @Override
+            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
 
-        Log.d("pch" , "outside " + courseList.size());
+            }
+
+            @Override
+            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+
+            }
+
+            @Override
+            public void onChildRemoved(DataSnapshot dataSnapshot) {
+
+            }
+
+            @Override
+            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
+
+        Log.d("CourseArrayList", "Hello");
+
+        try{
+            Thread.sleep(1000);
+        } catch(java.lang.InterruptedException e)
+        {
+
+
+        }
         return courseList;
     }
 
-    private void setArrayList(ArrayList<Course> arrayList)
-    {
-        if(arrayList.size() != 0)
-        {
-            courseList = new ArrayList(arrayList);
-        }
-    }
     public void addCourse(String courseID, String instructorName, String courseName)
     {
 
