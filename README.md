@@ -17,5 +17,5 @@ We wanted to optimize and maximize the learning potential within a university en
 
 
 ## Built With
-**Android Studio**
+**Android Studio**</br>
 **Firebase**
